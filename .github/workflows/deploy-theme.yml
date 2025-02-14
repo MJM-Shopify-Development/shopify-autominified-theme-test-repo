@@ -9,7 +9,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -25,11 +25,6 @@ jobs:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
           SHOPIFY_CLI_TTY: 0
         run: shopify theme push --theme ${{ secrets.SHOPIFY_THEME_ID }} -a
-  lhci:
-    name: Lighthouse
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: Lighthouse
         uses: shopify/lighthouse-ci-action@v1
         with:
