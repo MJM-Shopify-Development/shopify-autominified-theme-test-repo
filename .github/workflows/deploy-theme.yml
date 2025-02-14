@@ -21,14 +21,14 @@ jobs:
       - run: npm install
       - run: npm run styles & npm run scripts
       - env:
-          SHOPIFY_FLAG_STORE: ${{ secrets.SHOP_STORE }}
-          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+          SHOPIFY_FLAG_STORE: ${{ secrets.SHOP_STORE }} # store-handle.myshopify.com
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }} # Shopify Theme Access App password (installed in shop)
           SHOPIFY_CLI_TTY: 0
-        run: shopify theme push --theme ${{ secrets.SHOPIFY_THEME_ID }} -a
+        run: shopify theme push --theme ${{ secrets.SHOPIFY_THEME_ID }} -a # Theme ID number or name of theme
       - name: Lighthouse
         uses: shopify/lighthouse-ci-action@v1
         with:
           access_token: ${{ secrets.SHOP_ACCESS_TOKEN }}
-          store: ${{ secrets.SHOP_STORE }}
-          password: ${{ secrets.SHOP_PASSWORD }}
-          lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          store: ${{ secrets.SHOP_STORE }} # store-handle.myshopify.com
+          password: ${{ secrets.SHOP_PASSWORD }} # password from Online Store > Preferences page
+          lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }} # From Github Lighthouse app install process (Google Keep note: Github Org PWs)
