@@ -24,4 +24,4 @@ jobs:
           SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_STORE }}
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
           SHOPIFY_CLI_TTY: 0
-        run: shopify theme push --theme ${{ secrets.SHOPIFY_THEME_ID }}
+        run: yes | shopify theme push --theme ${{ secrets.SHOPIFY_THEME_ID }}
